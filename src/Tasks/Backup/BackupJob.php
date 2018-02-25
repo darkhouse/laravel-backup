@@ -216,7 +216,9 @@ class BackupJob
 
             $dbName = $dbDumper instanceof Sqlite ? 'database' : $dbDumper->getDbName();
 
-            $fileName = "{$dbType}-{$dbName}.sql";
+            $dumpFile = $dbDumper->getDumpFile();
+
+            $fileName = "{$dbType}-{$dumpFile}";
 
             $temporaryFilePath = $this->temporaryDirectory->path('db-dumps'.DIRECTORY_SEPARATOR.$fileName);
 

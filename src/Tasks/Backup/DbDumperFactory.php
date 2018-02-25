@@ -31,7 +31,8 @@ class DbDumperFactory
             ->setHost(array_first(array_wrap($dbConfig['host'] ?? '')))
             ->setDbName($dbConfig['database'])
             ->setUserName($dbConfig['username'] ?? '')
-            ->setPassword($dbConfig['password'] ?? '');
+            ->setPassword($dbConfig['password'] ?? '')
+            ->setDumpFile($dbConnectionName.'-'.$dbConfig['database'].'.sql');
 
         if ($dbDumper instanceof MySql) {
             $dbDumper->setDefaultCharacterSet($dbConfig['charset'] ?? '');
